@@ -1,0 +1,30 @@
+.Box{
+background-color: black;
+border-radius: 2px;
+width: 50%;
+}
+
+.Title {
+    background-color:darkgreen;
+    border-radius: 2px;
+    width: 100%;
+}
+.items {
+background-color: gold;
+border-radius: 2px;
+width : 100%;
+margin-top:2px;
+margin-bottom: 2px; 
+}
+h2 {
+margin-top: 2px;
+margin-bottom: 2px;
+margin-left: 2px;
+margin-right: 2px;
+}
+p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
