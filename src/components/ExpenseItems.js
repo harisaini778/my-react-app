@@ -1,16 +1,25 @@
-import ExpenseDate from './ExpenseDate';
+// import ExpenseDate from './ExpenseDate';
 import './ExpenseItems.css';
-const ExpenseItems = (props)=> {
+const ExpenseItems = (Location)=> {
     //   const LocationOfExpenditure = ["FoodItem", "Petrol", "Movies"];
-    return (<div className='Box'>
-        {/* <div className='Title'><h2>{props.title }</h2></div>
-        <div className='items'> <p>{LocationOfExpenditure[0]} for Rs 10 </p> </div>
-        <div className='items'> <p>{LocationOfExpenditure[1]} for Rs 100</p></div>
-        <div className='items'> <p>{LocationOfExpenditure[2]} Movies for Rs 200</p></div> */}
-        {/* <div className='items'>{props.date.toISOString()}</div> */}
-        <ExpenseDate date={props.date}></ExpenseDate>
-        <div className='items'><h2>{props.title}</h2>
-        <h2>{props.amount}</h2></div>
+    const clickHandler = () => {
+        try {
+            console.log("delete button is clicked !!!");
+            const expenseItem = document.getElementById(Location.id);
+            expenseItem.parentNode.removeChild(expenseItem);
+        } catch(err){
+            console.log(err);   
+        }
+    }
+    console.log("This is thr location array"+Location[0].title);
+    return (<div className='Box' id={Location.id}>
+          {/* <ExpenseDate date={props.date}></ExpenseDate> */}
+        {/* <ExpenseItems title={props.title} amount={props.amount}>
+        </ExpenseItems> */}
+        <p>{Location.date}</p>
+        <p>{Location.amount}</p>
+        <p>{ Location.title }</p>
+        <button onClick={clickHandler}>Delete Expense</button>
     </div>)
 }
 export default ExpenseItems;
