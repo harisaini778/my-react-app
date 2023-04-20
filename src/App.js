@@ -1,9 +1,6 @@
 import ExpenseItems from './components/ExpenseItems';
 
 const App = ()=> {
-  // let para = document.createElement("p");
-  // para.textContent = "I am Hari learning React";
-  // document.getElementById("root").append("para");
   let LocationOfExpenditure = [
     {
       title: "Food Item",
@@ -25,8 +22,9 @@ const App = ()=> {
     }
   ]
   return (
-    <div className="App container text-bg-dark p-3 ">
-        <div className='font-monospace'><h2>This is Expense Items List !</h2></div>
+    <div className="App container text-bg-dark p-3 card card-body">
+      <div className='font-monospace'>
+        <h2 style={{textAlign:"center"}}>This is Expense Items List !</h2></div>
       <ExpenseItems locations={LocationOfExpenditure}></ExpenseItems>
     </div>
   );
