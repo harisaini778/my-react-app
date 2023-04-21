@@ -1,10 +1,11 @@
 //import './ExpenseItems.css';
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
+import CardElements from "./CardElements";
 
 const ExpenseItems = (props) => {
   return (
-    <div className='conatiner-fluid text-bg-light p-3" card card-body'>
+       <CardElements>
       {props.locations.map((location) => (
           <div key={location.id} className='border border-dark card card-body bg-success text-black'
           style={{marginBottom:"5px"}}>
@@ -15,7 +16,7 @@ const ExpenseItems = (props) => {
                   </div>
         </div>
       ))}
-    </div>
+      </CardElements>
   );
 }
 export default ExpenseItems;
