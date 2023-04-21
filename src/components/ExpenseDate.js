@@ -7,7 +7,8 @@ const ExpenseDate =(props) =>{
         <div className='card card-body border border-dark' style={{ width: "8rem", marginLeft: "10px", marginTop: "10px" }}>
         <p>{day}</p>
         <p>{month}</p>
-        <p>{year}</p></div>
+            <p>{year}</p>
+        </div>
     );
 }
 export default ExpenseDate;
