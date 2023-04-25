@@ -4,10 +4,10 @@ const ExpenseDate =(props) =>{
     let month = props.date.toLocaleString('en-US', { month: 'long' });
     let year = props.date.getFullYear();
     return (
-        <div className='card card-body border border-dark' style={{ width: "8rem", marginLeft: "10px", marginTop: "10px" }}>
-        <p>{day}</p>
-        <p>{month}</p>
-            <p>{year}</p>
+        <div className="card border border-dark w-25">
+            <p style={{ textAlign: "center" }}>{day}</p>
+            <p style={{ textAlign: "center" }}>{month}</p>
+            <p style={{textAlign:"center"}}>{year}</p>
         </div>
     );
 }

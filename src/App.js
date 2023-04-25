@@ -1,4 +1,5 @@
 import ExpenseItems from './components/ExpenseItems';
+import NewExpense from './components/NewExpense/NewExpense';
 
 const App = ()=> {
   let LocationOfExpenditure = [
@@ -22,11 +23,10 @@ const App = ()=> {
     }
   ]
   return (
-    <div className="App container text-bg-dark p-3 card card-body">
-      <div className='font-monospace'>
-        <h2 style={{textAlign:"center"}}>This is Expense Items List !</h2></div>
+    <div>
+        <NewExpense/>
       <ExpenseItems locations={LocationOfExpenditure}></ExpenseItems>
-    </div>
+      </div>
   );
 }
 

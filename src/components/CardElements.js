@@ -1,6 +1,6 @@
 const CardElements = (props) => {
   return (
-    <div className="container-fluid bg bg-light p-3 card card-body">
+    <div className="container bg bg-light card card-body w-75">
       {props.children}
     </div>
   );

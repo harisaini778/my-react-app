@@ -14,13 +14,15 @@ const ExpenseItems = (props) => {
 
   const [newAmounts, setNewAmounts] = useState({});
 
-  const UpdateExpenseHandler = (locationId) => {
-    const newAmount = "100$";
-    setNewAmounts((prevAmounts) => ({
+const UpdateExpenseHandler = (locationId) => {
+  const newAmount = "100$";
+  setNewAmounts((prevAmounts) => {
+    return {
       ...prevAmounts,
       [locationId]: newAmount,
-    }));
-  };
+    };
+  });
+};
 
   return (
     <CardElements>
@@ -31,17 +33,16 @@ const ExpenseItems = (props) => {
           className="border border-dark card card-body bg-dark text-black"
           style={{ marginBottom: "5px" }}
         >
+          <div className="row">
           <ExpenseDate date={location.date}></ExpenseDate>
-          <div
-            className="card card-body border border-dark"
-            style={{ width: "50%", marginLeft: "250px" }}
-          >
-            <ExpenseDetails
+           <div className="col"> <ExpenseDetails
               details={[
                 location.title,
                 newAmounts[location.id] || location.amount,
               ]}
             ></ExpenseDetails>
+            </div>
+            <div className="col">
             <button
               className="btn btn-light font-monospace"
               onClick={deleteExpenseHandler}
@@ -49,12 +50,13 @@ const ExpenseItems = (props) => {
             >
               Delete Expense
             </button>
-            <button
+             <button
               className="btn btn-success font-monopsace"
               onClick={() => UpdateExpenseHandler(location.id)}
             >
               Update Amount
-            </button>
+              </button>
+              </div>
           </div>
         </div>
       ))}
