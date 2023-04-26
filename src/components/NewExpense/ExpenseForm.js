@@ -1,24 +1,55 @@
 import React, { useState } from "react";
-const ExpenseForm = () => {
-    const [enteredTitle, setEnteredTitle] = useState("");
-    function titleChangeHandeler(event) {
-        setEnteredTitle(event.target.value);
-        console.log(enteredTitle);
-    }
-    const [enteredAmount, setEnteredAmount] = useState("");
-    function amountChangeHandeler(event) {
-        setEnteredAmount(event.target.value);
-        console.log(enteredAmount);
-    }
-    const [enteredDate, setEnteredDate] = useState("");
-    function dateChangeHandeler(event) {
-        setEnteredDate(event.target.value);
-        console.log(enteredDate);
-    }
-    // function handleChange(event) {
-    //     let val = event.target.value;
-    //     console.log(val);
+const Expenseform = () => {
+
+    //******Easy Method To use multiple states *******//
+
+    // const [enteredTitle, setEnteredTitle] = useState("");
+    // function titleChangeHandeler(event) {
+    //     setEnteredTitle(event.target.value);
+    //     console.log(enteredTitle);
     // }
+    // const [enteredAmount, setEnteredAmount] = useState("");
+    // function amountChangeHandeler(event) {
+    //     setEnteredAmount(event.target.value);
+    //     console.log(enteredAmount);
+    // }
+    // const [enteredDate, setEnteredDate] = useState("");
+    // function dateChangeHandeler(event) {
+    //     setEnteredDate(event.target.value);
+    //     console.log(enteredDate);
+    // }
+
+    //******Another Method to use states  ********//
+    
+    const [userInput, setUserInput] = useState({
+        enteredTitle: "",
+        enteredAmount: "",
+        enteredDate:""
+    })
+    function titleChangeHandeler(event) {
+        setUserInput((prevState) => {
+            return {
+                ...prevState, enteredTitle: event.target.value
+           }
+        });
+        console.log(userInput['enteredTitle']);
+    }
+    function amountChangeHandeler(event) {
+       setUserInput((prevState) => {
+           return {
+               ...prevState, enteredAmount:event.target.value
+           }
+        });
+        console.log(userInput['enteredAmount']);
+    }
+    function dateChangeHandeler(event) {
+          setUserInput((prevState) => {
+           return {
+               ...prevState, enteredDate:event.target.value
+           }
+        });
+        console.log(userInput['enteredDate']);
+    }
     return (
         <div className="form-group">
             <label for="x1"> Title : </label>
@@ -31,4 +62,4 @@ const ExpenseForm = () => {
         </div>
     );
 }
-export default ExpenseForm;
+export default Expenseform;
