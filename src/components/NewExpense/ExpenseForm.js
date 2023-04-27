@@ -20,7 +20,7 @@ const Expenseform = () => {
     // }
 
     //******Another Method to use states  ********//
-    
+
     const [userInput, setUserInput] = useState({
         enteredTitle: "",
         enteredAmount: "",
@@ -50,16 +50,27 @@ const Expenseform = () => {
         });
         console.log(userInput['enteredDate']);
     }
+    const submitFormHandeler = (event) => {
+        event.preventDefault();
+        const myFormData = {
+            title: userInput['enteredTitle'],
+            amount: userInput['enteredAmount'],
+            date : new Date(userInput['enteredDate'])
+        }
+        console.log(myFormData);
+    }
     return (
-        <div className="form-group">
+          <form onSubmit={(event)=>{submitFormHandeler(event)}}> <div className="form-group">
             <label for="x1"> Title : </label>
             <input type="text" id="x1"className="form-control"onChange={titleChangeHandeler}/>
             <label for="x2"> Amount : </label>
             <input type="number" id="x2" min="0.01" step="0.01" className="form-control"onChange={amountChangeHandeler}/>
             <label for="x3"> Date :</label>
             <input type="date" min="1-01-2023" max="31-12-2023" className="form-control"onChange={dateChangeHandeler}/><br/>
-            <button className="btn btn-light"> Add Expense </button>
-        </div>
+            <button className="btn btn-light" type="submit"> Add Expense </button>
+            </div>
+        </form>
+        
     );
 }
 export default Expenseform;
