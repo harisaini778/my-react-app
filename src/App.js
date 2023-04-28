@@ -1,5 +1,7 @@
+//import CardElements from './components/CardElements';
+import ConditionalExpenseList from './components/ConditionalExpenseList';
 import ExpenseFilter from './components/ExpenseFilter';
-import ExpenseItems from './components/ExpenseItems';
+//import ExpenseItems from './components/ExpenseItems';
 import NewExpense from './components/NewExpense/NewExpense';
 import React, { useState } from "react";
 
@@ -44,7 +46,12 @@ const App = () => {
   }
 
   const filteredExpenses = LocationOfExpenditure.filter((expense) => {
-    return expense.date.getFullYear().toString() === filteredYear;
+    if (filteredYear === " ") {
+      return true;
+    }
+    else {
+      return expense.date.getFullYear().toString() === filteredYear;
+    }
   });
 
   return (
@@ -52,7 +59,7 @@ const App = () => {
       <NewExpense onAddExpense={addExpenseHandeler} />
       <ExpenseFilter selectedYear={filteredYear}
         onFilterChange={ handleFilterChange} />
-      <ExpenseItems locations={filteredExpenses}/>
+      <ConditionalExpenseList locations={ filteredExpenses } />
       </div>
   );
 }
