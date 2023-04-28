@@ -1,3 +1,4 @@
+import ExpenseFilter from './components/ExpenseFilter';
 import ExpenseItems from './components/ExpenseItems';
 import NewExpense from './components/NewExpense/NewExpense';
 import React, { useState } from "react";
@@ -36,12 +37,22 @@ const App = () => {
         }])
     })
   }
- 
+  
+  const [filteredYear, setFilteredYear] = useState("2022");
+  const handleFilterChange = (selectedYear) => {
+    setFilteredYear(selectedYear);
+  }
+
+  const filteredExpenses = LocationOfExpenditure.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
 
   return (
     <div>
-      <NewExpense onAddExpense={ addExpenseHandeler } />
-      <ExpenseItems locations={LocationOfExpenditure}></ExpenseItems>
+      <NewExpense onAddExpense={addExpenseHandeler} />
+      <ExpenseFilter selectedYear={filteredYear}
+        onFilterChange={ handleFilterChange} />
+      <ExpenseItems locations={filteredExpenses}/>
       </div>
   );
 }
