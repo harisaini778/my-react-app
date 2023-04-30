@@ -1,6 +1,7 @@
 import React from "react";
 import ExpenseItems from "./ExpenseItems";
 import CardElements from "./CardElements";
+import ExpensesChart from "./NewExpense/ExpensesChart";
 
  const ConditionalExpenseList = (props) => {
     if (props.locations.length === 0) {
@@ -11,7 +12,10 @@ import CardElements from "./CardElements";
       return displayMessage;
     }
     else {
-      return <ExpenseItems locations={props.locations} />;
+      return (<div>
+        <ExpensesChart expenses={props.locations} />
+        <ExpenseItems locations={props.locations} />
+        </div>);
     }
 }
 export default ConditionalExpenseList;

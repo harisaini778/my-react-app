@@ -1,28 +1,30 @@
 //import CardElements from './components/CardElements';
 import ConditionalExpenseList from './components/ConditionalExpenseList';
 import ExpenseFilter from './components/ExpenseFilter';
+//import ExpensesChart from './components/NewExpense/ExpensesChart';
 //import ExpenseItems from './components/ExpenseItems';
 import NewExpense from './components/NewExpense/NewExpense';
 import React, { useState } from "react";
+
 
 const App = () => {
   const [LocationOfExpenditure, setLocationOfExpenditure] =
     useState([
       {
         title: "Food Item",
-        amount: "Rs 100",
+        amount: 100,
         date: new Date("2023-04-17"),
         id: "e1",
       },
       {
         title: "Fuel : Petrol",
-        amount: "Rs 200",
+        amount: 200,
         date: new Date("2023-04-17"),
         id: "e2",
       },
       {
         title: "Movies : New Movie",
-        amount: "Rs 100",
+        amount: 100,
         date: new Date("2023-04-17"),
         id: "e3",
       }
@@ -58,7 +60,7 @@ const App = () => {
     <div>
       <NewExpense onAddExpense={addExpenseHandeler} />
       <ExpenseFilter selectedYear={filteredYear}
-        onFilterChange={ handleFilterChange} />
+        onFilterChange={handleFilterChange} />
       <ConditionalExpenseList locations={ filteredExpenses } />
       </div>
   );
