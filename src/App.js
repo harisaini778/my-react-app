@@ -28,17 +28,17 @@ const App = () => {
       }
     ]);
   
-   const addExpenseHandeler = (expense) => {
-    console.log("in app.js");
-    console.log(expense);
-     setLocationOfExpenditure((prevState) => {
-       return ([...prevState,
-       { 
-         ...expense,
-         id: Math.random().toString(), 
+    const addExpenseHandeler = (expense) => {
+      console.log("in app.js");
+      console.log(expense);
+      setLocationOfExpenditure((prevState) => {
+        return ([...prevState,
+        {
+          ...expense,
+          id: Math.random().toString(),
         }])
-    })
-  }
+      })
+    }
   
   const [filteredYear, setFilteredYear] = useState("2022");
   const handleFilterChange = (selectedYear) => {

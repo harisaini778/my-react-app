@@ -12,7 +12,7 @@ const ExpenseItems = (props) => {
     }
   };
 
-  const [newAmounts, setNewAmounts] = useState({});
+  const [newAmounts, setNewAmounts] = useState(props.locations);
 
 const UpdateExpenseHandler = (locationId) => {
   const newAmount = "100$";

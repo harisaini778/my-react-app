@@ -63,7 +63,7 @@ const Expenseform = (props) => {
         enteredTitle: "",
         enteredAmount: "",
         enteredDate: ""
-    });
+        });
     }
     return (
           <form onSubmit={(event)=>{submitFormHandeler(event)}}> <div className="form-group">
@@ -73,6 +73,8 @@ const Expenseform = (props) => {
             <input type="number" id="x2" min="0.01" step="0.01" className="form-control" onChange={amountChangeHandeler} value={ userInput['enteredAmount']} />
             <label for="x3"> Date :</label>
             <input type="date" min="1-01-2023" max="31-12-2023" className="form-control" onChange={dateChangeHandeler} value={ userInput['enteredDate']} /><br/>
+            <button className="btn btn-light" type="button" onClick={props.onCancel}
+            style={{marginRight:"10px"}}>Cancel</button>
             <button className="btn btn-light" type="submit"> Add Expense </button>
             </div>
         </form>
